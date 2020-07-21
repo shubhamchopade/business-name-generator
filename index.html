@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" type="text/css">
+  <title>Brand Name Generator</title>
+</head>
+<body>
+  <section>
+    <!-- INPUT -->
+    <p style="text-align: center;">1. Enter atleast <b>5 names</b> separated by <b>comma ','</b><br>2. Make sure you enter on both sides and <b>Push</b> it to the list<br>3. Click on <b>GENERATE</b> to get multiple combinations</p>
+    <div class="input-fields">
+    <input class="input-style" type="text" id="first-word" placeholder="capito, capita, capito, fin..." ></input>
+    <input class="input-style" type="text" id="second-word" placeholder="pedia, pert, tech..."></input>
+    <button id="btnPush">Push</button>
+  </div>
+<!-- BUTTON -->
+  <div class="buttons">
+    
+    <button id="btn">GENERATE</button>
+  </div>
+<!-- OUTPUT -->
+      <div class="output">
+        <h1 id='final-word'></h1>
+        <div class="wordList">
+        <p  class="label">FIRST HALF</p>
+        <p class="list" id='word-list-one'></p>
+        <p class="label">SECOND HALF</p>
+        <p class="list" id='word-list-two'></p>
+        <button id="clearAll">Clear All</button>
+      </div>
+      </div>
+  </section>
+  <script src="app.js"></script>
+</body>
+</html>
