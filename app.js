@@ -11,8 +11,7 @@ let firstHalf = [];
 let secondHalf = [];
 let word;
 
-btn.style.display = "none";
-output.style.display = 'none'
+clearLists();
 
 btnPush.addEventListener("click", addToList);
 
@@ -49,7 +48,7 @@ function brandWord() {
   let maxNum1 = Math.floor(Math.random() * firstHalf.length);
   let maxNum2 = Math.floor(Math.random() * secondHalf.length);
   if (firstHalf[maxNum1] === secondHalf[maxNum2]) {
-    return (fullName = firstHalf[maxNum1]);
+    return alert('Enter distinct values in the fields');
   }
   fullName = firstHalf[maxNum1] + secondHalf[maxNum2];
   displayWord.innerHTML = fullName;
@@ -73,4 +72,6 @@ function clearLists() {
   wordListTwo.innerHTML = "";
   firstHalf = [];
   secondHalf = [];
+  btn.style.display = "none";
+  output.style.display = 'none'
 }
