@@ -6,11 +6,13 @@ const btnClr = document.getElementById("clearAll");
 const displayWord = document.getElementById("final-word");
 const wordListOne = document.getElementById("word-list-one");
 const wordListTwo = document.getElementById("word-list-two");
+const output = document.querySelector('.output')
 let firstHalf = [];
 let secondHalf = [];
 let word;
 
 btn.style.display = "none";
+output.style.display = 'none'
 
 btnPush.addEventListener("click", addToList);
 
@@ -26,6 +28,7 @@ function addToList() {
     secondWord.value = "";
     btnPush.style.backgroundColor = "#C8FDB5";
     btn.style.display = "block";
+    output.style.display = "block";
     btn.focus();
   }
 }
