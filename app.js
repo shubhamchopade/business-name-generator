@@ -2,11 +2,10 @@ const firstWord = document.getElementById("first-word");
 const secondWord = document.getElementById("second-word");
 const btn = document.getElementById("btn");
 const btnPush = document.getElementById("btnPush");
-const btnClr = document.getElementById("clearAll");
 const displayWord = document.getElementById("final-word");
 const wordListOne = document.getElementById("word-list-one");
 const wordListTwo = document.getElementById("word-list-two");
-const output = document.querySelector('.output')
+const output = document.querySelector(".output");
 let firstHalf = [];
 let secondHalf = [];
 let word;
@@ -14,9 +13,15 @@ let word;
 clearLists();
 
 btnPush.addEventListener("click", addToList);
+btn.addEventListener("click", brandWord);
 
 function addToList() {
-  if (firstWord.value == "" || secondWord.value == "") {
+  if (btnPush.innerText === "Enter different combination") {
+    clearLists();
+    firstWord.disabled = false;
+    secondWord.disabled = false;
+    btnPush.innerText = "Push";
+  } else if (firstWord.value == "" || secondWord.value == "") {
     btnPush.style.backgroundColor = "#F56566";
     firstWord.focus();
     alert("Fill both values");
@@ -25,46 +30,42 @@ function addToList() {
     strToArr(secondWord.value, secondHalf, wordListTwo);
     firstWord.value = "";
     secondWord.value = "";
-    btnPush.style.backgroundColor = "#C8FDB5";
+    btnPush.innerText = "Enter different combination";
     btn.style.display = "block";
     output.style.display = "block";
+    firstWord.disabled = true;
+    secondWord.disabled = true;
     btn.focus();
+    btnPush.style.backgroundColor = "#B7E39F";
   }
 }
 
 function strToArr(str, arrPush, wordList) {
   var splited = str.split(",");
   var uniq = [...new Set(splited)];
+  console.log(uniq);
   uniq.filter((a) => arrPush.push(a));
   wordList.innerHTML += ` ${uniq}`;
 }
 
-
-
-btn.addEventListener("click", brandWord);
-
-function brandWord() {
-  var fullName;
+function randomName(firstHalf, secondHalf) {
+  var fullName, lastName;
+  let randomNumber = (max) => Math.floor(Math.random() * max);
   let maxNum1 = Math.floor(Math.random() * firstHalf.length);
   let maxNum2 = Math.floor(Math.random() * secondHalf.length);
-  if (firstHalf[maxNum1] === secondHalf[maxNum2]) {
-    return alert('Enter distinct values in the fields');
+  fullName =
+    firstHalf[maxNum1].slice(randomNumber(firstHalf[maxNum1].length)) +
+    secondHalf[maxNum2].slice(randomNumber(firstHalf[maxNum1].length));
+  if (fullName === lastName) {
+    return randomName(firstHalf, secondHalf);
   }
-  fullName = firstHalf[maxNum1] + secondHalf[maxNum2];
   displayWord.innerHTML = fullName;
-  btnPush.style.backgroundColor = "#FF8784";
+  lastName = fullName;
 }
 
-document.body.onkeyup = function (e) {
-  if (e.keyCode == 32) {
-    brandWord();
-  }
-};
-
-
-btnClr.addEventListener("click", clearLists);
-btnClr.style.backgroundColor = "#F56566";
-btnClr.style.marginBottom = "60px";
+function brandWord() {
+  randomName(firstHalf, secondHalf);
+}
 
 function clearLists() {
   displayWord.innerHTML = "";
@@ -73,5 +74,5 @@ function clearLists() {
   firstHalf = [];
   secondHalf = [];
   btn.style.display = "none";
-  output.style.display = 'none'
+  output.style.display = "none";
 }

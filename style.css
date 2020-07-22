@@ -36,12 +36,13 @@ body{
   flex-direction: column;
 }
 
-.wordList{
+.word-list{
   display: flex;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap-reverse;
 }
-.wordList p{
+.word-list p{
   
   margin-left: 10px;
 }
@@ -64,6 +65,9 @@ body{
 .list{
   margin-top: 0;
   font-size: large;
+  width: 90%;
+  overflow: hidden;
+  text-align: center;
 }
 
 #btn{
@@ -71,6 +75,7 @@ body{
   margin-left: 10px;
   margin-top: 10px;
   height: 50px;
+  color: rgb(0, 0, 0);
 }
 
 .buttons{
@@ -81,4 +86,36 @@ body{
 #clearAll{
   height: 30px;
   font-family: monospace;
+}
+
+@media only screen and (max-width: 600px) {
+  #final-word{
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .input-fields{
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    justify-content: center;
+  }
+  
+  .input-style{
+    width: 80%;
+    color: rgb(15, 15, 44);
+    margin-left: 10px;
+    height: auto;
+    font-size: small;
+  }
+  .input-style:focus{
+    border-radius: 5px;
+    background-color: rgb(241, 219, 189);
+  }
 }
