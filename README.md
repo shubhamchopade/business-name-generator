@@ -4,7 +4,7 @@
 2. Make sure you enter on both sides and Push it to the list
 3. Click on GENERATE to get multiple combinations
 
-##Features to be added
+## Features to be added
 
 1. Get the social media availablity
 2. Generate website domain names
